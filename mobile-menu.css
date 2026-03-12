@@ -1,0 +1,335 @@
+/* ============================================
+   MOBILE MENU STYLES
+   Complete Mobile Navigation Functionality
+   ============================================ */
+
+/* ============================================
+   MOBILE MENU BUTTON (Hamburger)
+   ============================================ */
+
+#mobile-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 1002;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+#mobile-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#mobile-btn:focus {
+  outline: 2px solid #ff6b35;
+  outline-offset: 2px;
+}
+
+#mobile-btn svg {
+  width: 28px;
+  height: 28px;
+  color: white;
+}
+
+/* ============================================
+   MOBILE MENU PANEL
+   ============================================ */
+
+#mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  max-width: 85vw;
+  height: 100vh;
+  height: 100dvh;
+  background: linear-gradient(180deg, rgba(18, 18, 26, 0.98) 0%, rgba(10, 10, 15, 0.98) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1001;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-y: auto;
+  visibility: hidden;
+}
+
+/* When menu is open */
+#mobile-menu.open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* ============================================
+   CLOSE BUTTON
+   ============================================ */
+
+#close-menu {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+#close-menu:hover {
+  background: rgba(255, 107, 53, 0.2);
+  border-color: rgba(255, 107, 53, 0.5);
+  transform: rotate(90deg);
+}
+
+#close-menu:focus {
+  outline: 2px solid #ff6b35;
+  outline-offset: 2px;
+}
+
+#close-menu svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ============================================
+   MOBILE MENU CONTENT
+   ============================================ */
+
+#mobile-menu > div {
+  padding: 80px 30px 40px;
+}
+
+#mobile-menu .flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 20px;
+}
+
+/* ============================================
+   MOBILE NAV LINKS
+   ============================================ */
+
+#mobile-menu .nav-link {
+  display: block;
+  padding: 18px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#mobile-menu .nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(180deg, #ff6b35, #f7931e);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+#mobile-menu .nav-link:hover {
+  color: #ff6b35;
+  padding-left: 15px;
+  background: rgba(255, 107, 53, 0.05);
+}
+
+#mobile-menu .nav-link:hover::before {
+  transform: scaleY(1);
+}
+
+#mobile-menu .nav-link.active {
+  color: #ff6b35;
+  padding-left: 15px;
+  background: rgba(255, 107, 53, 0.08);
+}
+
+#mobile-menu .nav-link.active::before {
+  transform: scaleY(1);
+}
+
+/* Remove bottom border from last link */
+#mobile-menu .nav-link:last-child {
+  border-bottom: none;
+}
+
+/* ============================================
+   OVERLAY (Background Darkening)
+   ============================================ */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 1000;
+  pointer-events: none;
+  transition: background 0.4s ease;
+  visibility: hidden;
+}
+
+.menu-overlay.active {
+  background: rgba(0, 0, 0, 0.6);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Show mobile menu button on screens below 768px */
+@media (max-width: 767px) {
+  #mobile-btn {
+    display: flex !important;
+  }
+
+  /* Hide desktop navigation */
+  nav .hidden.md\:flex,
+  nav .md\:flex {
+    display: none !important;
+  }
+
+  /* Ensure mobile menu is properly positioned */
+  #mobile-menu {
+    display: block;
+  }
+}
+
+/* Hide mobile menu button on desktop */
+@media (min-width: 768px) {
+  #mobile-btn {
+    display: none !important;
+  }
+
+  #mobile-menu {
+    display: none !important;
+  }
+
+  nav .hidden.md\:flex,
+  nav .md\:flex {
+    display: flex !important;
+  }
+}
+
+/* ============================================
+   EXTRA SMALL SCREENS
+   ============================================ */
+
+@media (max-width: 375px) {
+  #mobile-menu {
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  #mobile-menu .nav-link {
+    font-size: 16px;
+    padding: 16px 0;
+  }
+}
+
+/* ============================================
+   LANDSCAPE MOBILE
+   ============================================ */
+
+@media (max-width: 896px) and (orientation: landscape) {
+  #mobile-menu {
+    width: 50vw;
+  }
+
+  #mobile-menu > div {
+    padding-top: 60px;
+  }
+
+  #mobile-menu .nav-link {
+    padding: 12px 0;
+    font-size: 16px;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Staggered animation for nav links when menu opens */
+#mobile-menu.open .nav-link {
+  animation: slideIn 0.4s ease forwards;
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+#mobile-menu.open .nav-link:nth-child(1) { animation-delay: 0.1s; }
+#mobile-menu.open .nav-link:nth-child(2) { animation-delay: 0.15s; }
+#mobile-menu.open .nav-link:nth-child(3) { animation-delay: 0.2s; }
+#mobile-menu.open .nav-link:nth-child(4) { animation-delay: 0.25s; }
+#mobile-menu.open .nav-link:nth-child(5) { animation-delay: 0.3s; }
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  #mobile-menu {
+    transition: none;
+  }
+
+  #mobile-menu.open .nav-link {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  #close-menu:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   BODY SCROLL LOCK WHEN MENU IS OPEN
+   ============================================ */
+
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* ============================================
+   SAFE AREA INSETS (for notched devices)
+   ============================================ */
+
+@supports (padding: max(0px)) {
+  #mobile-menu {
+    padding-top: max(0px, env(safe-area-inset-top));
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+}
