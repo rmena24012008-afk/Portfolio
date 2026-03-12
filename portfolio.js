@@ -104,7 +104,7 @@ let mainProject = [
     project_title: "Book Library",
     project_desc: "Creative online book library shopping platform",
     github: "https://github.com/rmena24012008-afk/Book-Library",
-    preview: "https://menakar-dufyypr5-8443.zcodecorp.in/html-demo/PROJECT/PROJECT/Book%20Library.html"
+    preview: "https://rmena24012008-afk.github.io/Book-Library/Book%20Library.html"
   },
   {
     project_img: "image/shopping.jpg",
@@ -213,7 +213,7 @@ const project = [
     title: "Banking App",
     desc: "Secure Banking UI Built With JavaScript",
     github: "https://github.com/rmena24012008-afk/advancejsassignment/tree/main/Assignment%20004",
-    preview: "https://menakar-dufyypr5-8443.zcodecorp.in/html-demo/Assignment%20javaScript%20Advance/Assignment%20004/banks.html"
+    preview: "https://rmena24012008-afk.github.io/advancejsassignment/Assignment%20004/banks.html"
   },
   {
     img: "image/bubble.webp",
