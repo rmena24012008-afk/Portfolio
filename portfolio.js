@@ -156,10 +156,10 @@ if (container) {
     previewLink.textContent = "🔗";
     previewLink.classList.add("preview");
 
-    if (project.project_tag != "Scratch" && project.project_tag != "OM") {
+    if (project.project_tag[0] != "Scratch" && project.project_tag[0] != "OM") {
       overlay.appendChild(githubLink);
     }
-    if (project.project_tag != "Java") {
+    if (project.project_tag[0] != "Java") {
       overlay.appendChild(previewLink);
     }
 
