@@ -104,7 +104,7 @@ let mainProject = [
     project_title: "Book Library",
     project_desc: "Creative online book library shopping platform",
     github: "https://github.com/rmena24012008-afk/Book-Library",
-    preview: "https://rmena24012008-afk.github.io/Book-Library/Book%20Library.html"
+    preview: "https://menakar-dufyypr5-8443.zcodecorp.in/html-demo/PROJECT/PROJECT/Book%20Library.html"
   },
   {
     project_img: "image/shopping.jpg",
@@ -213,7 +213,7 @@ const project = [
     title: "Banking App",
     desc: "Secure Banking UI Built With JavaScript",
     github: "https://github.com/rmena24012008-afk/advancejsassignment/tree/main/Assignment%20004",
-    preview: "https://rmena24012008-afk.github.io/advancejsassignment/Assignment%20004/banks.html"
+    preview: "https://menakar-dufyypr5-8443.zcodecorp.in/html-demo/Assignment%20javaScript%20Advance/Assignment%20004/banks.html"
   },
   {
     img: "image/bubble.webp",
@@ -360,21 +360,13 @@ function createCard(proj) {
   preview.classList.add("preview");
   preview.textContent = "🔗";
   
-  for(let i=0;i<proj.category.length;i++){
-
-    if (proj.category[i] != "Scratch") {
+    if (proj.tag != "Scratch" && proj.tag!="Group project") {
       overlay.appendChild(github);
-      break;
-
     }
-  }
 
-  for(let i=0;i<proj.category.length;i++){
-    if (proj.category[i] != "Java" && proj.category[i] != "Node Js") {
+    if (proj.tag != "Java" && proj.tag != "Node Js") {
       overlay.appendChild(preview);
-      break;
     }
-  }
 
   let info = document.createElement("div");
   info.classList.add("project-info");
@@ -394,7 +386,7 @@ function createCard(proj) {
     let tag = document.createElement("div");
     tag.classList.add("project-tag");
     tag.textContent = proj.category[i];
-    if (proj.category[i] == "Team") {
+    if (proj.category[i] == "Group project") {
       tag.textContent =  "Scratch";
     }
     info.appendChild(tag);
